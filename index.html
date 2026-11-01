@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Syntax-Lab 🧬 语法与架构实验室 — 苹果式焦聚剧场与全屏 IDE 实战舱</title>
+  <meta name="description" content="纯前端零依赖交互式编程语言核心机制（C/C++/C#/Java/Python/Go/Rust/JS/TS）、语法糖X光脱糖、主流架构时间旅行剧场与全屏IDE可编辑代码实战平台" />
+  <link rel="stylesheet" href="assets/css/optic-tokens.css?v=20261102031144" />
+  <link rel="stylesheet" href="assets/css/syntax-lab.css?v=20261102031144" />
+</head>
+<body class="layout-theater">
+  <!-- 微观银盐晶体肌理与环境漫射溢光场 (Optic-Resonance Atmospheric Scenography) -->
+  <div class="micro-grain-overlay" aria-hidden="true"></div>
+  <div class="ambilight-spill" id="ambilight-spill" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       苹果式悬浮胶囊顶栏 (Floating Glassmorphic Pill Navbar - 全视图通用)
+       ========================================================================= -->
+  <header class="floating-nav-wrap">
+    <div class="floating-pill-navbar">
+      <!-- 左侧：品牌徽标、Header 专属返回按钮与动态路径面包屑 -->
+      <div class="nav-brand-group">
+        <button type="button" class="brand-emblem js-go-home" aria-label="返回 Syntax-Lab 网站主页">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+            <line x1="14" y1="4" x2="10" y2="20"></line>
+          </svg>
+        </button>
+        <div class="brand-titles">
+          <div class="brand-name">
+            <button type="button" class="brand-link-btn js-go-home">Syntax-Lab</button>
+            <span class="brand-badge">9 LANGS · 30 DOCS</span>
+          </div>
+          <nav class="tier-breadcrumb" id="tier-breadcrumb" aria-label="当前语言页面路径面包屑" style="display: none;"></nav>
+        </div>
+        <!-- 修改要求 2：返回按钮统一移动到 Header 中 -->
+        <button type="button" class="header-back-btn" id="header-back-btn" style="display: none;" aria-label="返回上一级页面">
+          ← 返回
+        </button>
+      </div>
+
+      <!-- 中部：仅在进入具体编程语言主页或子页面时显示的当前语言专属胶囊导航（网站主页不显示“语言主页”等按钮） -->
+      <nav class="mode-tabs-desktop" id="header-context-nav" aria-label="当前语言功能页面导航" style="display: none;"></nav>
+
+      <!-- 右侧：声学与色温状态切换 -->
+      <div class="header-actions">
+        <button type="button" class="icon-action-btn" id="btn-sound-toggle" aria-label="切换微晶按键声学反馈">
+          🔇 声学关
+        </button>
+        <button type="button" class="icon-action-btn" id="btn-theme-toggle" aria-label="切换黑曜暗夜与美术馆暖白主题">
+          ☀️ 素白态
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       模式一：苹果式焦聚剧场与沉浸探索流 (Cinema Theater Stream)
+       适用于：1.网站主页 / 2.编程语言主页 / 3A.语法糖学习 / 3B.主流架构学习
+       特点：无左右侧边栏挤压、居中宽银幕画幅 (max-width: 1320px)、自然页面滚动、高留白
+       ========================================================================= -->
+  <main class="cinema-theater-stage" id="cinema-theater-stage">
+
+    <!-- -----------------------------------------------------------------------
+         层级 1：网站主页 (Tier 1: Platform Portal — 苹果发布会级主视觉 + 9 大语言剧场画廊)
+         ----------------------------------------------------------------------- -->
+    <section class="theater-section active" id="view-tier-portal" data-tier-view="portal">
+      <div class="cinema-hero-banner">
+        <div class="cinema-eyebrow">OPTIC-RESONANCE · CINEMA FOCUS THEATER</div>
+        <h1 class="cinema-display-title">
+          探索九大主流编程语言的<br />
+          <span class="gradient-accent-text">底层机械灵魂与工业级架构拓扑</span>
+        </h1>
+        <p class="cinema-lead-desc">
+          告别枯燥的黑盒死记硬背。<strong>Syntax-Lab</strong> 以电影级宽银幕焦聚剧场呈现 <strong>C、C++、C#、Java、Python、Go、Rust、JavaScript、TypeScript</strong> 的内存模型、编译器语法糖 X 光脱糖与 20+ 主流框架时间旅行步进；当需要动手编码验证时，一键切入<strong>VS Code 风格全屏 IDE 实战模拟舱</strong>。
+        </p>
+
+        <div class="cinema-stats-strip">
+          <div class="cinema-stat-item">
+            <span class="stat-big-num">9</span>
+            <span class="stat-sub-label">主流编程语言全覆盖</span>
+          </div>
+          <div class="cinema-stat-item">
+            <span class="stat-big-num">20+</span>
+            <span class="stat-sub-label">工业级主流开发框架</span>
+          </div>
+          <div class="cinema-stat-item">
+            <span class="stat-big-num">30</span>
+            <span class="stat-sub-label">权威标准原著与 1:1 精析</span>
+          </div>
+          <div class="cinema-stat-item">
+            <span class="stat-big-num">100%</span>
+            <span class="stat-sub-label">纯前端零依赖毫秒响应</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 剧场式聚光搜索栏 -->
+      <div class="cinema-search-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="portal-search-input" class="search-input cinema-search-input"
+                 placeholder="搜索编程语言、底层机制或主流开发框架（如 C++、Rust、Spring Boot、ASP.NET、PyTorch、React Fiber、Tokio）..."
+                 aria-label="筛选编程语言学习模块清单" />
+        </div>
+        <span class="brand-badge" id="portal-count-badge">共 9 大编程语言学习模块</span>
+      </div>
+
+      <!-- 九大编程语言学习模块剧场画廊网格 -->
+      <div class="cinema-lang-gallery" id="portal-lang-grid"></div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         层级 2：编程语言主页 (Tier 2: Programming Language Hub — Apple Bento 基因矩阵 + 三大功能剧场门户)
+         ----------------------------------------------------------------------- -->
+    <section class="theater-section" id="view-tier-lang-hub" data-tier-view="lang-hub">
+      <!-- 语言旗舰主展台 (Apple Keynote 风格大字报与 Bento 基因网格) -->
+      <div class="cinema-lang-keynote" id="lang-hub-hero">
+        <div class="keynote-header-row">
+          <div class="keynote-title-block">
+            <span class="hub-eyebrow" id="hub-creator-text">Creator &amp; Standard</span>
+            <h2 class="keynote-lang-title" id="hub-lang-title">编程语言主页</h2>
+            <p class="keynote-lang-tagline" id="hub-lang-tagline"></p>
+          </div>
+          <div class="hub-toolchain-box">
+            <span class="fp-label">标准编译 / 运行工具链契约</span>
+            <code id="hub-toolchain-cmd"></code>
+          </div>
+        </div>
+
+        <p class="keynote-lang-intro" id="hub-lang-intro"></p>
+
+        <!-- 四维底层基因 Bento 矩阵 -->
+        <div class="bento-dna-grid">
+          <div class="bento-dna-card">
+            <span class="dna-label">🧠 内存模型与回收机制 (Memory &amp; GC)</span>
+            <strong class="dna-value" id="hub-dna-mem"></strong>
+          </div>
+          <div class="bento-dna-card">
+            <span class="dna-label">⚡ 并发与协程调度原语 (Concurrency)</span>
+            <strong class="dna-value" id="hub-dna-conc"></strong>
+          </div>
+          <div class="bento-dna-card">
+            <span class="dna-label">🛡️ 类型系统与多态分派 (Type System)</span>
+            <strong class="dna-value" id="hub-dna-type"></strong>
+          </div>
+          <div class="bento-dna-card">
+            <span class="dna-label">🏛️ 生态旗舰开发框架 (Ecosystem Frameworks)</span>
+            <strong class="dna-value" id="hub-dna-fw"></strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 三大专属功能页面门户画廊 (3 Feature Portals) -->
+      <div class="cinema-section-heading">
+        <h3>🚀 深入该语言的三大核心功能空间</h3>
+        <p>前两大理论学习空间采用宽银幕焦聚剧场排版，第三空间切换为 VS Code 风格全屏 IDE 实战模拟工作台</p>
+      </div>
+
+      <div class="feature-portal-grid">
+        <!-- 功能入口 1：语法糖学习 (剧场模式) -->
+        <article class="feature-portal-card tilt-card" data-open-feature="sugar">
+          <div class="fp-card-top">
+            <span class="fp-icon-badge purple">🔬 功能页面 01 · 剧场视图</span>
+            <span class="card-category-tag">AST DESUGARING X-RAY</span>
+          </div>
+          <h4 class="fp-card-title">语法糖学习 (Syntactic Sugar X-Ray)</h4>
+          <p class="fp-card-desc" id="hub-sugar-preview"></p>
+          <button type="button" class="fp-enter-btn js-enter-feature" data-feature="sugar">
+            进入语法糖 X 光剧场 →
+          </button>
+        </article>
+
+        <!-- 功能入口 2：主流架构学习 (剧场模式) -->
+        <article class="feature-portal-card tilt-card" data-open-feature="arch">
+          <div class="fp-card-top">
+            <span class="fp-icon-badge cyan">🏛️ 功能页面 02 · 剧场视图</span>
+            <span class="card-category-tag">ARCHITECTURE &amp; STEPPER</span>
+          </div>
+          <h4 class="fp-card-title">主流架构学习 (Mainstream Architecture)</h4>
+          <p class="fp-card-desc" id="hub-arch-preview"></p>
+          <button type="button" class="fp-enter-btn js-enter-feature" data-feature="arch">
+            进入主流架构时间旅行剧场 →
+          </button>
+        </article>
+
+        <!-- 功能入口 3：实战模拟 (专属全屏 IDE 模式) -->
+        <article class="feature-portal-card tilt-card ide-portal-highlight" data-open-feature="ide">
+          <div class="fp-card-top">
+            <span class="fp-icon-badge emerald">💻 功能页面 03 · 专属 IDE 布局</span>
+            <span class="card-category-tag">FULLSCREEN IDE SANDBOX</span>
+          </div>
+          <h4 class="fp-card-title">实战模拟 (IDE 风格可编辑代码工作台)</h4>
+          <p class="fp-card-desc" id="hub-ide-preview"></p>
+          <button type="button" class="fp-enter-btn emerald-btn js-enter-feature" data-feature="ide">
+            启动全屏 IDE 实战模拟工作台 →
+          </button>
+        </article>
+      </div>
+
+      <!-- 该语言收录的核心框架专题与权威文献精析 -->
+      <div class="cinema-section-heading">
+        <h3>📚 该语言收录的主流框架专题与权威原著精析</h3>
+        <span id="hub-docs-count">关联专题</span>
+      </div>
+      <div class="manifest-grid" id="hub-manifest-grid"></div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         层级 3A：语法糖学习 (Tier 3A: Syntactic Sugar Theater — 宽银幕双透镜 X 光剧场)
+         ----------------------------------------------------------------------- -->
+    <section class="theater-section" id="view-tier-sugar" data-tier-view="sugar">
+      <div class="cinema-feature-hero">
+        <div>
+          <span class="cinema-eyebrow">COMPILER AST LOWERING &amp; BYTECODE X-RAY</span>
+          <h2 id="sugar-banner-title">🔬 语法糖 X 光脱糖解构剧场</h2>
+          <p>左透镜呈现日常编写的优雅高层语法糖，右透镜剥离全部语法伪装，直视编译器 AST Lowering 后的状态机与底层指针实现</p>
+        </div>
+        <button type="button" class="fp-enter-btn emerald-btn" id="btn-load-sugar-to-ide">
+          💻 将此语法糖载入全屏 IDE 编辑运行 →
+        </button>
+      </div>
+
+      <div class="sugar-selector-bar" id="sugar-selector-bar" role="tablist" aria-label="语法糖课题选择"></div>
+
+      <div class="xray-theater-stage">
+        <div class="code-pane-card theater-code-card">
+          <div class="code-pane-header">
+            <span>✨ 高层优雅语法糖 (High-Level Syntactic Sugar)</span>
+            <span class="pane-tag-sugar">SOURCE AST</span>
+          </div>
+          <pre class="code-pre" id="xray-sugar-code"></pre>
+        </div>
+
+        <div class="code-pane-card theater-code-card">
+          <div class="code-pane-header">
+            <span>⚙️ 编译器脱糖底层展开 (Compiler Lowered Machine Code)</span>
+            <span class="pane-tag-desugared">DESUGARED LOWERING</span>
+          </div>
+          <pre class="code-pre" id="xray-desugared-code"></pre>
+        </div>
+      </div>
+
+      <div class="sugar-insight-box theater-insight-banner">
+        <h4 id="xray-topic-title">编译器脱糖深度原理解析</h4>
+        <p id="xray-insight-text"></p>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         层级 3B：主流架构学习 (Tier 3B: Mainstream Architecture Theater — 宽银幕代码 + 内存示波器同台剧场)
+         ----------------------------------------------------------------------- -->
+    <section class="theater-section" id="view-tier-arch" data-tier-view="arch">
+      <div class="cinema-feature-hero">
+        <div>
+          <span class="cinema-eyebrow">MAINSTREAM FRAMEWORKS &amp; TIME-TRAVEL OSCILLOSCOPE</span>
+          <h2 id="arch-banner-title">🏛️ 主流开发框架架构与时间旅行步进剧场</h2>
+          <p>剖析当前语言生态主流开发框架核心管线，并在宽银幕双联剧场中同步回放代码执行行、调用栈（Call Stack）与堆内存拓扑</p>
+        </div>
+        <button type="button" class="fp-enter-btn emerald-btn" id="btn-load-case-to-ide">
+          💻 在全屏 IDE 中编辑演练此架构案例 →
+        </button>
+      </div>
+
+      <!-- 当前语言的主流框架架构深度解析卡片 -->
+      <div class="manifest-grid" id="arch-framework-cards"></div>
+
+      <div class="case-selector-row" id="case-selector-row" role="tablist" aria-label="经典架构案例步进选择"></div>
+
+      <!-- 宽银幕双联架构时间旅行剧场：左指令追踪控制台 + 右宽幅 SVG 栈堆示波器 -->
+      <div class="arch-cinema-split">
+        <div class="stepper-console-card">
+          <div class="stepper-controls-bar">
+            <div class="stepper-btn-group">
+              <button type="button" class="step-ctrl-btn" id="btn-step-prev" aria-label="单步回退">
+                ⏮ 上一步
+              </button>
+              <button type="button" class="step-ctrl-btn primary-play" id="btn-step-play" aria-label="自动播放或暂停步进">
+                ▶ 自动演练
+              </button>
+              <button type="button" class="step-ctrl-btn" id="btn-step-next" aria-label="单步前进">
+                下一步 ⏭
+              </button>
+            </div>
+
+            <div class="step-progress-wrap">
+              <input type="range" id="step-slider" class="step-slider" min="0" max="4" value="0" aria-label="时间旅行步进时间轴滑块" />
+              <span class="step-badge-counter" id="step-badge-counter">STEP 1 / 5</span>
+              <select id="step-speed-select" class="step-speed-select" aria-label="步进自动播放倍速">
+                <option value="0.5">0.5x</option>
+                <option value="1" selected>1.0x</option>
+                <option value="2">2.0x</option>
+                <option value="4">4.0x</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="code-pane-card">
+            <div class="code-pane-header">
+              <span>🎯 架构核心链路指令追踪视窗 (Active Instruction Trace)</span>
+              <span class="pane-tag-desugared desktop-shortcut-hint">快捷键: ← / → 单步 | Space 播放</span>
+            </div>
+            <div id="case-code-lines" style="padding: 12px 0; overflow-x: auto;"></div>
+          </div>
+
+          <div class="narrative-card" id="arch-narrative-text"></div>
+        </div>
+
+        <!-- 剧场右侧内嵌宽幅 SVG 栈堆与框架拓扑示波器 -->
+        <div class="scope-card arch-theater-scope">
+          <div class="scope-header">
+            <span>📡 实时调用栈 (RSP) 与框架堆内存拓扑示波器</span>
+            <span class="brand-badge" id="arch-phase-badge">STACK_FRAME_INIT</span>
+          </div>
+          <div class="svg-canvas-box">
+            <svg id="arch-oscilloscope-svg" class="memory-svg" viewBox="0 0 440 260" role="img" aria-label="主流架构调用栈与堆内存实时拓扑图"></svg>
+          </div>
+          <div class="arch-cheatsheet-mini">
+            <div class="fp-row">
+              <span class="fp-label">当前语言内存机制</span>
+              <span class="fp-val" id="arch-fp-mem"></span>
+            </div>
+            <div class="fp-row">
+              <span class="fp-label">当前语言并发模型</span>
+              <span class="fp-val" id="arch-fp-conc"></span>
+            </div>
+            <div class="fp-row">
+              <span class="fp-label">当前语言核心框架</span>
+              <span class="fp-val" id="arch-fp-fw"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       模式二：VS Code 风格精简全屏 IDE 实战模拟工作台 (VS Code Fullscreen IDE Workbench)
+       ★ 仅在用户进入「3C. 实战模拟 (IDE)」页面时独占激活！
+       1. 代码编辑器放大占据主工作区 > 60% 面积（无右侧栏挤压、无冗余顶部横幅）
+       2. 返回按钮已统一移至顶部 Header
+       3. 左侧采用 VS Code 活动栏 (Activity Bar) + 多菜单侧边栏（目录清单 / 项目清单 / 运行与调试）
+       4. 右侧栏完全取消，堆栈内存示波器、AST 脱糖、运行时规格与终端统一整合至底部多标签面板
+       ========================================================================= -->
+  <section class="ide-exclusive-shell" id="ide-exclusive-shell" aria-label="实战模拟专属 VS Code 风格全屏 IDE 工作台">
+    <!-- 左栏：VS Code 双层侧边栏 = 极窄图标活动栏 (Activity Bar) + 多菜单抽屉 (Side Bar) -->
+    <aside class="vscode-left-dock" id="vscode-left-dock">
+      <!-- VS Code 最左侧图标活动栏 (Activity Bar) -->
+      <div class="vscode-activity-bar" role="tablist" aria-label="VS Code 侧边栏视图切换">
+        <button type="button" class="activity-icon-btn active" data-vscode-side="explorer" title="目录清单 (Explorer)" aria-label="目录清单">
+          <span class="act-icon">📁</span>
+          <span class="act-label">目录</span>
+        </button>
+        <button type="button" class="activity-icon-btn" data-vscode-side="projects" title="项目清单 (Projects &amp; Frameworks)" aria-label="项目清单">
+          <span class="act-icon">🗂️</span>
+          <span class="act-label">项目</span>
+        </button>
+        <button type="button" class="activity-icon-btn" data-vscode-side="run" title="运行与调试 (Run &amp; Debug)" aria-label="运行与调试">
+          <span class="act-icon">▶️</span>
+          <span class="act-label">运行</span>
+        </button>
+      </div>
+
+      <!-- VS Code 可折叠侧边菜单内容区 (Side Bar Views) -->
+      <div class="vscode-sidebar-panel" id="vscode-sidebar-panel">
+        <!-- 菜单 1：目录清单 (Explorer — 当前语言工程目录树与源文件) -->
+        <div class="vscode-side-view active" id="vscode-side-explorer" data-side-pane="explorer">
+          <div class="rail-section-title">
+            <span>EXPLORER · 目录清单</span>
+            <span id="ide-explorer-lang-tag">C</span>
+          </div>
+          <div class="vscode-tree-folder">
+            <div class="tree-folder-header">▾ WORKSPACE / src</div>
+            <div class="lang-channel-list" id="ide-lang-channel-list" aria-label="当前编程语言工程源码文件列表"></div>
+          </div>
+        </div>
+
+        <!-- 菜单 2：项目清单 (Projects — 当前语言主流框架与架构模块清单) -->
+        <div class="vscode-side-view" id="vscode-side-projects" data-side-pane="projects">
+          <div class="rail-section-title">
+            <span>PROJECTS · 项目清单</span>
+            <span>MODULES</span>
+          </div>
+          <div class="vscode-project-list" id="ide-project-manifest-list" aria-label="当前编程语言架构项目清单"></div>
+        </div>
+
+        <!-- 菜单 3：运行与调试 (Run &amp; Debug — 编译执行控制与工具链契约) -->
+        <div class="vscode-side-view" id="vscode-side-run" data-side-pane="run">
+          <div class="rail-section-title">
+            <span>RUN &amp; DEBUG · 运行与调试</span>
+            <span>LAUNCH</span>
+          </div>
+          <div class="vscode-run-panel">
+            <button type="button" class="ide-btn primary-run vscode-full-btn" id="btn-vscode-side-run">
+              ▶ 编译并运行 (Ctrl+Enter)
+            </button>
+            <button type="button" class="ide-btn vscode-full-btn" id="btn-vscode-side-desugar">
+              🔬 AST 脱糖检视 (切至底部)
+            </button>
+            <button type="button" class="ide-btn vscode-full-btn" id="btn-vscode-side-mem">
+              🧠 堆栈内存快照 (切至底部)
+            </button>
+            <button type="button" class="ide-btn vscode-full-btn" id="btn-vscode-side-reset">
+              ↺ 重置为默认模板源码
+            </button>
+
+            <div class="vscode-debug-box">
+              <span class="fp-label">当前编译器 / 运行时指令</span>
+              <code id="ide-side-toolchain-cmd">gcc -O3 -std=c23</code>
+            </div>
+            <div class="vscode-debug-box">
+              <span class="fp-label">活动断点与观察点 (Watch)</span>
+              <span class="fp-val">● main() 入口栈帧自动捕获</span>
+              <span class="fp-val">● 堆分配与指针逃逸实时追踪</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主工作区列（无右侧侧边栏！上部代码编辑器占据 >60% 空间 + 下部多标签综合面板） -->
+    <div class="vscode-main-workspace">
+      <!-- 上部：高占比代码编辑器主视窗 (占主视口 62%+ 高度) -->
+      <div class="ide-workbench-window">
+        <div class="ide-toolbar">
+          <div class="ide-file-tabs">
+            <span class="ide-file-tab active">
+              <span class="ide-file-dot" id="ide-file-dot"></span>
+              <span id="ide-filename-label">epoll_reactor.c</span>
+            </span>
+            <select id="ide-template-select" class="ide-template-select" aria-label="选择当前语言代码文件模板">
+              <option value="starter">📄 默认框架实战模板 (Starter)</option>
+              <option value="sugar">✨ 载入当前语言语法糖源码</option>
+              <option value="desugared">⚙️ 载入编译器脱糖后底层源码</option>
+              <option value="case">🏛️ 载入主流架构步进案例源码</option>
+            </select>
+            <span class="brand-badge" id="ide-status-badge">READY · EDITABLE BUFFER</span>
+          </div>
+
+          <div class="ide-action-btns">
+            <button type="button" class="ide-btn primary-run" id="btn-ide-run">
+              ▶ 编译并运行 (Ctrl+Enter)
+            </button>
+            <button type="button" class="ide-btn" id="btn-ide-desugar">
+              🔬 AST 脱糖
+            </button>
+            <button type="button" class="ide-btn" id="btn-ide-mem">
+              🧠 堆栈内存
+            </button>
+            <button type="button" class="ide-btn" id="btn-ide-reset">
+              ↺ 重置
+            </button>
+          </div>
+        </div>
+
+        <div class="ide-editor-body">
+          <div class="ide-line-gutter" id="ide-line-gutter" aria-hidden="true">1</div>
+          <textarea id="ide-code-textarea" class="ide-code-textarea" spellcheck="false"
+                    aria-label="IDE 可编辑源代码编辑器"
+                    placeholder="在此编写或修改代码，点击上方『编译并运行』或按 Ctrl+Enter 实时解析输出..."></textarea>
+        </div>
+      </div>
+
+      <!-- 下部：VS Code 多菜单底部综合面板（终端 / 堆栈内存示波器 / AST 脱糖透视 / 语言规格） -->
+      <div class="vscode-bottom-dock" id="vscode-bottom-dock">
+        <div class="vscode-panel-header">
+          <div class="vscode-panel-tabs" role="tablist" aria-label="IDE 底部多菜单面板切换">
+            <button type="button" class="vscode-panel-tab active" data-bottom-tab="terminal">
+              💻 终端 (TERMINAL)
+            </button>
+            <button type="button" class="vscode-panel-tab" data-bottom-tab="memory">
+              🧠 堆栈内存示波器 (STACK &amp; HEAP)
+            </button>
+            <button type="button" class="vscode-panel-tab" data-bottom-tab="desugar">
+              🔬 AST 脱糖对照 (LOWERED IR)
+            </button>
+            <button type="button" class="vscode-panel-tab" data-bottom-tab="specs">
+              📊 语言底层规格 (RUNTIME SPECS)
+            </button>
+          </div>
+
+          <div class="vscode-panel-actions">
+            <button type="button" class="term-cmd-chip js-term-chip" data-cmd="run">▶ run</button>
+            <button type="button" class="term-cmd-chip js-term-chip" data-cmd="framework">🏛️ framework</button>
+            <button type="button" class="term-cmd-chip js-term-chip" data-cmd="clear">🧹 clear</button>
+            <button type="button" class="term-cmd-chip" id="btn-toggle-bottom-dock" title="折叠或展开底部面板以最大化代码编辑区">
+              ▾ 折叠面板
+            </button>
+          </div>
+        </div>
+
+        <div class="vscode-panel-body" id="vscode-panel-body">
+          <!-- 底部菜单 1：集成终端 (TERMINAL) -->
+          <div class="vscode-bottom-pane active" id="bottom-pane-terminal" data-bottom-pane="terminal">
+            <div class="terminal-output" id="terminal-output" role="log" aria-live="polite"></div>
+            <form class="terminal-input-row" id="terminal-form">
+              <label for="terminal-input" class="term-prompt" id="term-prompt-label">syntax@c:~$</label>
+              <input type="text" id="terminal-input" class="term-input"
+                     placeholder="输入当前语言终端指令 (如 run, desugar, framework, mem, reset, clear, help)..."
+                     autocomplete="off" />
+              <button type="submit" class="term-run-btn">执行 ↵</button>
+            </form>
+          </div>
+
+          <!-- 底部菜单 2：堆栈内存示波器 (STACK & HEAP MEMORY — 原右侧栏完整移入底部双栏并排) -->
+          <div class="vscode-bottom-pane" id="bottom-pane-memory" data-bottom-pane="memory">
+            <div class="bottom-memory-grid">
+              <div class="svg-canvas-box bottom-svg-box">
+                <svg id="ide-oscilloscope-svg" class="memory-svg" viewBox="0 0 440 260" role="img" aria-label="IDE 实时调用栈与堆内存拓扑图"></svg>
+              </div>
+              <div class="bottom-memory-info">
+                <div class="scope-header">
+                  <span>📡 实时调用栈帧 (RSP) 与堆内存拓扑分析</span>
+                  <span class="brand-badge" id="ide-phase-badge">IDE_READY</span>
+                </div>
+                <div class="narrative-card" id="ide-narrative-text">
+                  在上方编辑器修改代码并点击「▶ 编译并运行」，此处将实时绘制当前源文件的栈帧局部变量槽位与运行时堆拓扑。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 底部菜单 3：AST 脱糖底层对照 (AST LOWERING) -->
+          <div class="vscode-bottom-pane" id="bottom-pane-desugar" data-bottom-pane="desugar">
+            <div class="bottom-desugar-grid">
+              <div class="code-pane-card">
+                <div class="code-pane-header">
+                  <span id="ide-bottom-desugar-title">⚙️ 当前语言编译器 AST 脱糖展开</span>
+                  <span class="pane-tag-desugared">DESUGARED LOWERING</span>
+                </div>
+                <pre class="code-pre" id="ide-bottom-desugar-code" style="max-height: 155px;"></pre>
+              </div>
+              <div class="sugar-insight-box">
+                <h4>编译器脱糖机制精要</h4>
+                <p id="ide-bottom-desugar-insight"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 底部菜单 4：语言底层规格与剧场快捷跳转 (RUNTIME SPECS) -->
+          <div class="vscode-bottom-pane" id="bottom-pane-specs" data-bottom-pane="specs">
+            <div class="bottom-specs-grid">
+              <div class="lang-fingerprint-card">
+                <div class="fp-header">
+                  <span id="fp-lang-name">C 语言 · C99/C23</span>
+                  <span>SPEC</span>
+                </div>
+                <div class="fp-row">
+                  <span class="fp-label">内存机制</span>
+                  <span class="fp-val" id="fp-mem-val"></span>
+                </div>
+                <div class="fp-row">
+                  <span class="fp-label">并发模型</span>
+                  <span class="fp-val" id="fp-conc-val"></span>
+                </div>
+                <div class="fp-row">
+                  <span class="fp-label">类型系统</span>
+                  <span class="fp-val" id="fp-type-val"></span>
+                </div>
+                <div class="fp-row">
+                  <span class="fp-label">旗舰框架</span>
+                  <span class="fp-val" id="fp-fw-val"></span>
+                </div>
+              </div>
+              <div class="scope-card" style="justify-content:center;">
+                <div class="scope-header">
+                  <span>⚡ 切换至当前语言理论剧场视图</span>
+                  <span class="card-category-tag">THEATER JUMP</span>
+                </div>
+                <button type="button" class="fp-enter-btn" id="btn-ide-to-sugar" style="width:100%;">
+                  🔬 查看当前语言语法糖 X 光剧场 →
+                </button>
+                <button type="button" class="fp-enter-btn" id="btn-ide-to-arch" style="width:100%;">
+                  🏛️ 查看当前语言主流架构步进剧场 →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部 VS Code 状态栏 -->
+      <div class="ide-statusbar">
+        <span id="ide-status-lang">LANG: C23</span>
+        <span id="ide-status-cursor">Ln 1, Col 1</span>
+        <span>UTF-8 · 4 Spaces · VS Code Workbench Mode</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 移动端底部拇指热区导航坞 (仅在进入具体编程语言后显示，网站主页不显示) -->
+  <nav class="mobile-bottom-dock" id="mobile-bottom-dock" aria-label="移动端当前语言功能导航" style="display: none;"></nav>
+
+  <script src="assets/js/syntax-data.js?v=20261102031144"></script>
+  <script src="assets/js/syntax-lab.js?v=20261102031144"></script>
+</body>
+</html>
